@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const products = [
+  {
+    category: "Decorated Sugar Cookies",
+    description: "Custom decorated for any occasion—birthdays, weddings, holidays, and more",
+    basePrice: "Starting at $45/dozen",
+    items: [
+      {
+        name: "Custom Occasion Cookies",
+        description: "Beautifully decorated sugar cookies designed specifically for your event. Tell me your theme and I'll create edible art.",
+        price: "$45/dozen",
+        image: "/images/afton1.jpg"
+      },
+      {
+        name: "Birthday Cookies",
+        description: "Personalized birthday designs—ages, names, themes, and favorite characters.",
+        price: "$45/dozen",
+        image: "/images/chapter30.jpg"
+      },
+      {
+        name: "Wedding & Bridal Cookies",
+        description: "Elegant designs for bridal showers, weddings, and engagement parties.",
+        price: "$50/dozen",
+        image: "/images/wedding.jpg"
+      },
+      {
+        name: "Holiday Cookies",
+        description: "Seasonal shapes with beautiful royal icing designs. Perfect for gifts.",
+        price: "$45/dozen",
+        image: "/images/butterflies.jpg"
+      },
+      {
+        name: "Baby Shower Cookies",
+        description: "Sweet designs to celebrate the new arrival—gender reveals, baby themes, and more.",
+        price: "$45/dozen",
+        image: "/images/20250501_213141.jpg"
+      },
+      {
+        name: "Character & Theme Cookies",
+        description: "From Snoopy to butterflies—I can create cookies to match any theme.",
+        price: "$50/dozen",
+        image: "/images/snoopy.jpg"
+      }
+    ]
+  },
+  {
+    category: "Scrumptious Cookies",
+    description: "Classic favorites—delicious cookies without the fancy decorations",
+    basePrice: "Starting at $25/dozen",
+    items: [
+      {
+        name: "Chocolate Chip Cookies",
+        description: "Crispy edges, chewy centers, loaded with premium chocolate chips.",
+        price: "$25/dozen",
+        image: "/images/20250113_154137-edited.jpg"
+      },
+      {
+        name: "Snickerdoodles",
+        description: "Soft, pillowy cookies rolled in cinnamon sugar. A nostalgic favorite.",
+        price: "$25/dozen",
+        image: "/images/20250507_133837.jpg"
+      },
+      {
+        name: "Peanut Butter Cookies",
+        description: "Rich, crumbly peanut butter goodness with the classic fork pattern.",
+        price: "$25/dozen",
+        image: "/images/20250502_192219.jpg"
+      },
+      {
+        name: "Oatmeal Raisin",
+        description: "Chewy oatmeal cookies with plump raisins and a hint of cinnamon.",
+        price: "$25/dozen",
+        image: "/images/20250506_131859.jpg"
+      }
+    ]
+  },
+  {
+    category: "Candies",
+    description: "Handmade confections made in small batches",
+    basePrice: "Pricing varies",
+    items: [
+      {
+        name: "Chocolate Truffles",
+        description: "Rich, velvety ganache in assorted flavors: dark chocolate, salted caramel, raspberry, and espresso.",
+        price: "Contact for pricing",
+        image: "/images/1000002508.jpg"
+      },
+      {
+        name: "Handmade Caramels",
+        description: "Soft, buttery caramels with a touch of sea salt. Individually wrapped.",
+        price: "Contact for pricing",
+        image: "/images/1000002542.jpg"
+      },
+      {
+        name: "Seasonal Candies",
+        description: "Special confections for holidays and special occasions.",
+        price: "Contact for pricing",
+        image: "/images/1000002610.jpg"
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout title="Our Treats" description="Handcrafted cookies, candies, and gift boxes">
+  <section class="products-hero">
+    <div class="container">
+      <h1>Our Treats</h1>
+      <p>Handcrafted with love, made fresh to order</p>
+    </div>
+  </section>
+
+  {products.map((category) => (
+    <section class="product-category">
+      <div class="container">
+        <header class="category-header">
+          <h2 class="category-title">{category.category}</h2>
+          <div class="category-divider"></div>
+          <p class="category-description">{category.description}</p>
+          <p class="category-price">{category.basePrice}</p>
+        </header>
+        <div class="products-grid">
+          {category.items.map((item) => (
+            <article class="product-item">
+              <div class="product-item__image">
+                <img src={item.image} alt={item.name} loading="lazy">
+              </div>
+              <div class="product-item__content">
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <span class="product-item__price">{item.price}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="products-order">
+    <div class="container container--narrow text-center">
+      <h2>Ready to Order?</h2>
+      <p>
+        All treats are made fresh to order. For custom orders, special occasions, or 
+        questions about availability, please get in touch. I typically need 3-5 days 
+        notice for most orders, and a bit more for large or highly decorated requests.
+      </p>
+      <div class="order-contact">
+        <p><strong>Email:</strong> <a href="mailto:sweetbitesbylaura@gmail.com">sweetbitesbylaura@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:703-585-2834">(703) 585-2834</a></p>
+      </div>
+      <a href="/contact" class="btn btn--primary">Place an Order</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .products-hero {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .products-hero h1 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .products-hero > div > p {
+    font-size: 1.25rem;
+    color: var(--color-chocolate);
+    opacity: 0.7;
+    max-width: none;
+  }
+
+  .hero-contact {
+    margin-top: var(--space-md);
+  }
+
+  .hero-contact p {
+    margin: var(--space-xs) 0;
+  }
+
+  .hero-contact a {
+    color: var(--color-caramel);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .hero-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .product-category {
+    padding-block: var(--space-lg);
+  }
+
+  .product-category:nth-child(odd) {
+    background: var(--color-cream);
+  }
+
+  .product-category:nth-child(even) {
+    background: var(--color-warm-white);
+  }
+
+  .category-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .category-title {
+    font-size: 2rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .category-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--color-caramel);
+    margin: var(--space-sm) auto;
+  }
+
+  .category-description {
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    margin-bottom: var(--space-xs);
+    max-width: none;
+    text-align: center;
+  }
+
+  .category-price {
+    font-weight: 600;
+    color: var(--color-caramel);
+    font-size: 1.125rem;
+    text-align: center;
+    max-width: none;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .product-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(74, 55, 40, 0.08);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+
+  .product-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 55, 40, 0.12);
+  }
+
+  .product-item__image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .product-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-item:hover .product-item__image img {
+    transform: scale(1.05);
+  }
+
+  .product-item__content {
+    padding: var(--space-md);
+  }
+
+  .product-item__content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .product-item__content p {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.85;
+    margin-bottom: var(--space-sm);
+  }
+
+  .product-item__price {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-caramel);
+    font-size: 1.0625rem;
+  }
+
+  .products-order {
+    background: var(--color-chocolate-dark);
+    color: var(--color-cream);
+    padding-block: var(--space-xl);
+  }
+
+  .products-order h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--space-sm);
+  }
+
+  .products-order p {
+    color: var(--color-butter);
+    margin-inline: auto;
+    margin-bottom: var(--space-sm);
+  }
+
+  .order-contact {
+    margin-bottom: var(--space-md);
+  }
+
+  .order-contact a {
+    color: var(--color-butter);
+  }
+</style>

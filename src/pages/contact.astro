@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Sweet Bites by Laura">
+  <section class="contact-hero">
+    <div class="container container--narrow">
+      <h1>Get in Touch</h1>
+      <p>
+        Have a question, special request, or ready to place an order? 
+        I'd love to hear from you!
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <h2>Send a Message</h2>
+          <form class="contact-form" action="#" method="POST" name="contact" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a topic...</option>
+                <option value="order">Place an Order</option>
+                <option value="custom">Custom Order Request</option>
+                <option value="question">General Question</option>
+                <option value="event">Event / Catering Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell me about your order or question..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+
+        <aside class="contact-info">
+          <div class="info-card">
+            <h3>Order Information</h3>
+            <p>
+              All treats are made fresh to order. Please allow 3-5 days for most orders, 
+              and 1-2 weeks for large or highly decorated custom requests.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Custom Orders</h3>
+            <p>
+              Planning a wedding, birthday, corporate event, or special occasion? 
+              I love creating custom treats! Let me know your vision, quantities, 
+              and timeline.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Local Pickup & Delivery</h3>
+            <p>
+              Local pickup is available. Delivery may be available depending on 
+              your location and order size—just ask!
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h3>Response Time</h3>
+            <p>
+              I typically respond within 24-48 hours. If you have an urgent request, 
+              please mention that in your message.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-hero p {
+    font-size: 1.25rem;
+    color: var(--color-chocolate);
+    opacity: 0.85;
+    margin-inline: auto;
+  }
+
+  .contact-content {
+    padding-block: var(--space-lg);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .contact-form-wrapper h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--color-chocolate-dark);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.875rem 1rem;
+    border: 1.5px solid var(--color-butter);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-chocolate);
+    background: white;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-caramel);
+    box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.15);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form .btn {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .info-card {
+    background: var(--color-warm-white);
+    padding: var(--space-md);
+    border-radius: 8px;
+    border-left: 3px solid var(--color-caramel);
+  }
+
+  .info-card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .info-card p {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.85;
+  }
+</style>

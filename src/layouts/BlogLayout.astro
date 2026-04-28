@@ -1,0 +1,142 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    date: string;
+    author?: string;
+    image?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <div class="container container--narrow">
+        <a href="/blog" class="back-link">← Back to Blog</a>
+        <h1>{frontmatter.title}</h1>
+        <div class="blog-post__meta">
+          <time datetime={frontmatter.date}>{formattedDate}</time>
+          {frontmatter.author && <span class="author">by {frontmatter.author}</span>}
+        </div>
+      </div>
+    </header>
+    
+    <div class="blog-post__content container container--narrow">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post__header {
+    background: var(--color-warm-white);
+    padding-block: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-caramel);
+    margin-bottom: var(--space-md);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--color-berry);
+  }
+
+  .blog-post__header h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-post__meta {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.7;
+  }
+
+  .blog-post__meta .author {
+    margin-left: var(--space-sm);
+  }
+
+  .blog-post__meta .author::before {
+    content: '·';
+    margin-right: var(--space-sm);
+  }
+
+  .blog-post__content {
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Prose styles for blog content */
+  .blog-post__content :global(h2) {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-post__content :global(h3) {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-post__content :global(p) {
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-post__content :global(ul),
+  .blog-post__content :global(ol) {
+    margin-bottom: var(--space-sm);
+    padding-left: var(--space-md);
+  }
+
+  .blog-post__content :global(li) {
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-post__content :global(blockquote) {
+    border-left: 3px solid var(--color-caramel);
+    padding-left: var(--space-md);
+    margin-block: var(--space-md);
+    font-style: italic;
+    color: var(--color-chocolate);
+    opacity: 0.9;
+  }
+
+  .blog-post__content :global(img) {
+    border-radius: 8px;
+    margin-block: var(--space-md);
+  }
+
+  .blog-post__content :global(code) {
+    background: var(--color-butter);
+    padding: 0.125em 0.375em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .blog-post__content :global(pre) {
+    background: var(--color-chocolate-dark);
+    color: var(--color-cream);
+    padding: var(--space-md);
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-block: var(--space-md);
+  }
+
+  .blog-post__content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+</style>

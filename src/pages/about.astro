@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="The story behind Sweet Bites by Laura">
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero__content">
+        <h1>About Sweet Bites</h1>
+        <p class="lead">
+          We are inspired by the joy that homemade cookies and candies bring
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-story">
+    <div class="container container--narrow">
+      <div class="divider">
+        <span class="divider__icon">✦</span>
+      </div>
+      
+      <h2>Our Story</h2>
+      <p>
+        Sweet Bites began in a small kitchen with a simple belief: the best treats are made 
+        with love, quality ingredients, and time-honored recipes. What started as baking for 
+        family gatherings soon became something more—a passion for sharing the joy that 
+        homemade sweets can bring.
+      </p>
+      <p>
+        Every cookie is rolled by hand. Every candy is crafted in small batches. Every 
+        recipe has been tested and perfected over years of experimentation. Because we 
+        believe that in a world of mass-produced everything, there's still room for 
+        things made the old-fashioned way.
+      </p>
+
+      <div class="divider">
+        <span class="divider__icon">✦</span>
+      </div>
+
+      <h2>Our Philosophy</h2>
+      <p>
+        We believe that baking is an act of love. It's the care that goes into measuring 
+        each ingredient, the patience required for the dough to chill, the attention paid 
+        to each cookie as it's decorated. These things can't be rushed or automated—and 
+        that's exactly the point.
+      </p>
+      <p>
+        Our treats aren't just food; they're memories in the making. Birthday celebrations, 
+        holiday traditions, a surprise box in the mail "just because"—these are the moments 
+        that matter, and we're honored to be a part of them.
+      </p>
+
+      <div class="divider">
+        <span class="divider__icon">✦</span>
+      </div>
+
+      <h2>Our Promise</h2>
+      <ul class="values-list">
+        <li>
+          <strong>Real Ingredients</strong> — Real butter, pure vanilla extract, quality 
+          chocolate. Never artificial flavors or preservatives.
+        </li>
+        <li>
+          <strong>Small Batches</strong> — Everything is made fresh in small quantities to 
+          ensure quality and consistency.
+        </li>
+        <li>
+          <strong>Made with Care</strong> — Every treat is crafted with the same attention 
+          we'd give something for our own family.
+        </li>
+        <li>
+          <strong>Beautifully Packaged</strong> — Because presentation matters, especially 
+          when it's a gift.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about-cta">
+    <div class="container text-center">
+      <h2>Ready to Try Our Treats?</h2>
+      <p>Explore our handcrafted cookies, candies, and confections.</p>
+      <div class="about-cta__buttons">
+        <a href="/products" class="btn btn--primary">View Our Treats</a>
+        <a href="/contact" class="btn btn--secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: 
+      radial-gradient(ellipse at 30% 50%, rgba(196, 149, 106, 0.15) 0%, transparent 50%),
+      linear-gradient(180deg, var(--color-warm-white) 0%, var(--color-cream) 100%);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .about-hero h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-hero .lead {
+    font-size: 1.375rem;
+    font-style: italic;
+    color: var(--color-chocolate);
+    opacity: 0.85;
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  .about-story {
+    padding-block: var(--space-lg);
+  }
+
+  .about-story h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .about-story p {
+    margin-bottom: var(--space-sm);
+    font-size: 1.0625rem;
+  }
+
+  .values-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .values-list li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-md);
+    position: relative;
+    border-bottom: 1px solid var(--color-butter);
+  }
+
+  .values-list li:last-child {
+    border-bottom: none;
+  }
+
+  .values-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--color-caramel);
+  }
+
+  .values-list strong {
+    font-family: var(--font-display);
+    color: var(--color-chocolate-dark);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .about-cta {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+  }
+
+  .about-cta h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-cta p {
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+    color: var(--color-chocolate);
+    opacity: 0.85;
+  }
+
+  .about-cta__buttons {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

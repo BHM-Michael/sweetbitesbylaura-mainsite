@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Homemade Breads, Cakes & Cookies"
+  description="Sweet Bites by Laura — handcrafted cookies, breads, and cakes made from scratch with love. Custom orders welcome."
+  image="/images/og-default.jpg"
+>
+
+  <!-- ═══ HERO ════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Handcrafted with Love</p>
+        <h1 class="hero__title">Sweet Bites<br><em>by Laura</em></h1>
+        <p class="hero__subtitle">
+          Homemade cookies, breads, and cakes made from scratch — 
+          the way grandmother used to make them.
+        </p>
+        <div class="hero__actions">
+          <a href="/products" class="btn btn--primary">See Our Treats</a>
+          <a href="/contact" class="btn btn--outline">Place an Order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TASTE OF HOME ═══════════════════════════════════════════════════ -->
+  <section class="taste-of-home">
+    <div class="container container--narrow">
+      <div class="divider">
+        <span class="divider__icon">✦</span>
+      </div>
+      <h2>A Taste of Home</h2>
+      <p class="lead">
+        Every loaf of bread or slice of cake leads to shared time with loved ones.
+      </p>
+      <p>
+        At Sweet Bites by Laura, we believe the best things in life are baked from scratch. 
+        Using real butter, pure vanilla, and time-honored recipes, every treat is crafted 
+        in small batches — never rushed, always made with care.
+      </p>
+      <div class="divider">
+        <span class="divider__icon">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR SPECIALTIES ══════════════════════════════════════════════════ -->
+  <section class="specialties">
+    <div class="container">
+      <h2 class="section-title">Our Specialties</h2>
+      <p class="section-subtitle">Each item made by hand, baked with love</p>
+
+      <div class="featured-grid">
+
+        <div class="treat-card">
+          <div class="treat-card__image">
+            <img src="/images/afton1.jpg" alt="Decorated Cookies" loading="lazy" />
+          </div>
+          <div class="treat-card__body">
+            <h3>Decorated Cookies</h3>
+            <p>Hand-decorated sugar cookies for every occasion — birthdays, holidays, baby showers, and more.</p>
+            <a href="/products#cookies" class="btn btn--outline btn--sm">See Cookies</a>
+          </div>
+        </div>
+
+        <div class="treat-card">
+          <div class="treat-card__image">
+            <img src="/images/20250113_154137-edited.jpg" alt="Homemade Breads" loading="lazy" />
+          </div>
+          <div class="treat-card__body">
+            <h3>Homemade Breads</h3>
+            <p>Freshly baked loaves made from scratch — soft, golden, and perfect for any table.</p>
+            <a href="/products#breads" class="btn btn--outline btn--sm">See Breads</a>
+          </div>
+        </div>
+
+        <div class="treat-card">
+          <div class="treat-card__image">
+            <img src="/images/1000002508.jpg" alt="Gift Boxes" loading="lazy" />
+          </div>
+          <div class="treat-card__body">
+            <h3>Gift Boxes</h3>
+            <p>Beautifully packaged assortments — the perfect gift for anyone who loves homemade baked goods.</p>
+            <a href="/products#gifts" class="btn btn--outline btn--sm">See Gift Boxes</a>
+          </div>
+        </div>
+
+        <div class="treat-card">
+          <div class="treat-card__image treat-card__image--placeholder">
+            <img src="/images/cakes.jpg" alt="Homemade Cakes" loading="lazy" />
+          </div>
+          <div class="treat-card__body">
+            <h3>Homemade Cakes</h3>
+            <p>Moist, from-scratch cakes for birthdays, celebrations, or any day that calls for something special.</p>
+            <a href="/products#cakes" class="btn btn--outline btn--sm">See Cakes</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT PREVIEW ════════════════════════════════════════════════════ -->
+  <section class="about-preview">
+    <div class="container">
+      <div class="about-preview__grid">
+        <div class="about-preview__image">
+          <img src="/images/chapter30.jpg" alt="Laura baking" loading="lazy" />
+        </div>
+        <div class="about-preview__content">
+          <p class="eyebrow">The Baker Behind the Box</p>
+          <h2>Made with Heart,<br>One Batch at a Time</h2>
+          <p>
+            Hi, I'm Laura. I've been baking for as long as I can remember, and 
+            there's nothing I love more than sharing something homemade with the 
+            people around me. Every recipe here has been tested, tweaked, and 
+            perfected over years of baking for family and friends.
+          </p>
+          <a href="/about" class="btn btn--primary">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ══════════════════════════════════════════════════════ -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Are Saying</h2>
+      <div class="testimonials-grid">
+        <blockquote class="testimonial">
+          <p>"The most beautiful cookies I've ever seen — and they tasted even better than they looked. Absolutely perfect for my daughter's birthday."</p>
+          <footer>— Sarah M.</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>"Laura's breads are incredible. I ordered a loaf as a gift and ended up ordering three more for myself. Real, homemade goodness."</p>
+          <footer>— James T.</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>"Every bite takes me back to my grandmother's kitchen. That's the best compliment I can give — pure, genuine homemade flavor."</p>
+          <footer>— Michele R.</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══════════════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container container--narrow">
+      <h2>Ready to Order?</h2>
+      <p>
+        Custom orders welcome for all occasions. I typically need 3–5 days notice — 
+        a little more for large or highly decorated requests.
+      </p>
+      <a href="/contact" class="btn btn--primary">Get in Touch</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────────────────────── */
+  .hero {
+    background: var(--color-cream);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .hero__eyebrow {
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-caramel);
+    margin-bottom: var(--space-xs);
+  }
+  .hero__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-sm);
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--color-caramel);
+  }
+  .hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    max-width: 520px;
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+  }
+  .hero__actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── Taste of Home ────────────────────────────────────────────────────── */
+  .taste-of-home {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .taste-of-home h2 {
+    margin-bottom: var(--space-sm);
+  }
+  .taste-of-home .lead {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--color-caramel);
+    margin-bottom: var(--space-sm);
+  }
+  .taste-of-home p:last-child {
+    color: var(--color-chocolate);
+    opacity: 0.8;
+  }
+
+  /* ── Specialties ──────────────────────────────────────────────────────── */
+  .specialties {
+    background: var(--color-cream);
+    padding-block: var(--space-xl);
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xs);
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-chocolate);
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+  .treat-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(74, 55, 40, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+  .treat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 55, 40, 0.12);
+  }
+  .treat-card__image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--color-butter);
+  }
+  .treat-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .treat-card__body {
+    padding: var(--space-md);
+  }
+  .treat-card__body h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+  }
+  .treat-card__body p {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* ── About Preview ────────────────────────────────────────────────────── */
+  .about-preview {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+  }
+  .about-preview__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .about-preview__grid { grid-template-columns: 1fr; }
+  }
+  .about-preview__image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .about-preview__content .eyebrow {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-caramel);
+    margin-bottom: var(--space-xs);
+  }
+  .about-preview__content h2 {
+    margin-bottom: var(--space-sm);
+  }
+  .about-preview__content p {
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    margin-bottom: var(--space-md);
+  }
+
+  /* ── Testimonials ─────────────────────────────────────────────────────── */
+  .testimonials {
+    background: var(--color-chocolate-dark);
+    padding-block: var(--space-xl);
+  }
+  .testimonials .section-title {
+    color: var(--color-cream);
+    margin-bottom: var(--space-lg);
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md);
+  }
+  .testimonial {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--color-caramel);
+    padding: var(--space-md);
+    border-radius: 4px;
+  }
+  .testimonial p {
+    font-style: italic;
+    color: var(--color-butter);
+    margin-bottom: var(--space-sm);
+  }
+  .testimonial footer {
+    color: var(--color-caramel);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* ── CTA ──────────────────────────────────────────────────────────────── */
+  .cta-section {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .cta-section h2 {
+    margin-bottom: var(--space-sm);
+  }
+  .cta-section p {
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    margin-bottom: var(--space-md);
+  }
+
+  /* ── Divider ──────────────────────────────────────────────────────────── */
+  .divider {
+    text-align: center;
+    margin-block: var(--space-md);
+    color: var(--color-caramel);
+    opacity: 0.5;
+    font-size: 1.25rem;
+  }
+</style>

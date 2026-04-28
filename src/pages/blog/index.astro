@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// This will be replaced with getCollection() when you have actual posts
+const posts = [
+  {
+    slug: 'perfect-sugar-cookie',
+    data: {
+      title: 'The Secret to Perfect Sugar Cookies',
+      description: 'After years of testing, here are my top tips for cookies that hold their shape and taste amazing.',
+      date: '2025-01-05',
+      author: 'Laura'
+    }
+  },
+  {
+    slug: 'candy-making-basics',
+    data: {
+      title: 'Candy Making 101: Getting Started',
+      description: 'Everything you need to know before diving into the delicious world of homemade candies.',
+      date: '2025-01-02',
+      author: 'Laura'
+    }
+  }
+];
+---
+
+<BaseLayout title="Blog" description="Tips, stories, and sweet inspiration from the kitchen">
+  <section class="blog-hero">
+    <div class="container">
+      <h1>From the Kitchen</h1>
+      <p>Tips, recipes, and sweet inspiration</p>
+    </div>
+  </section>
+
+  <section class="blog-list">
+    <div class="container container--narrow">
+      {posts.map((post) => (
+        <article class="blog-entry">
+          <time datetime={post.data.date}>
+            {new Date(post.data.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          <h2>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </h2>
+          <p>{post.data.description}</p>
+          <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+
+  .blog-hero h1 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-hero p {
+    font-size: 1.25rem;
+    color: var(--color-chocolate);
+    opacity: 0.7;
+    max-width: none;
+  }
+
+  .blog-list {
+    padding-block: var(--space-lg);
+  }
+
+  .blog-entry {
+    padding-block: var(--space-lg);
+    border-bottom: 1px solid var(--color-butter);
+  }
+
+  .blog-entry:last-child {
+    border-bottom: none;
+  }
+
+  .blog-entry time {
+    font-size: 0.875rem;
+    color: var(--color-caramel);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-entry h2 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    font-size: 1.75rem;
+  }
+
+  .blog-entry h2 a {
+    color: var(--color-chocolate-dark);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .blog-entry h2 a:hover {
+    color: var(--color-caramel);
+  }
+
+  .blog-entry p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-chocolate);
+    opacity: 0.85;
+  }
+
+  .read-more {
+    font-weight: 500;
+    color: var(--color-caramel);
+    text-decoration: none;
+  }
+
+  .read-more:hover {
+    color: var(--color-berry);
+  }
+</style>

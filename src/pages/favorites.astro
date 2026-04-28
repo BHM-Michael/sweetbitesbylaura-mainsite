@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    id: "baking-equipment",
+    title: "Baking Equipment",
+    description: "The pans, sheets, and mats I rely on every single bake.",
+    items: [
+      {
+        name: "Bread Pans with Liners",
+        description: "My go-to for perfectly shaped loaves every time. The liners make cleanup a breeze.",
+        amazonUrl: "https://amzn.to/4eMq2ni",
+      },
+      {
+        name: "Heavy Duty Baking Sheets",
+        description: "These don't warp in a hot oven. Once you bake on a quality sheet pan, you won't go back.",
+        amazonUrl: "https://amzn.to/48tZ7J7",
+      },
+      {
+        name: "Silicone Baking Mats",
+        description: "A reusable alternative to parchment — cookies slide right off and nothing sticks.",
+        amazonUrl: "https://amzn.to/4d5qMml",
+      },
+      {
+        name: "Bottom of Oven Baking Mat",
+        description: "Catches drips before they become permanent. Worth every penny for oven cleanup.",
+        amazonUrl: "https://amzn.to/4daypb2",
+      },
+    ],
+  },
+  {
+    id: "ingredients-flavoring",
+    title: "Ingredients & Flavoring",
+    description: "The extracts and ingredients that take flavor from good to unforgettable.",
+    items: [
+      {
+        name: "Vanilla Beans",
+        description: "These are the vanilla beans I use in my homemade extract and baking. Fresh, pliable, and fragrant.",
+        amazonUrl: "https://amzn.to/4cKnYK4",
+      },
+      {
+        name: "LorAnn Bakery Emulsions",
+        description: "Better than extract in many recipes — these don't bake off and the flavor stays bright.",
+        amazonUrl: "https://amzn.to/48szKHF",
+      },
+      {
+        name: "Homemade Extract Bottles",
+        description: "Pretty little bottles for homemade vanilla extract — also make great gifts.",
+        amazonUrl: "https://amzn.to/3OGVcSH",
+      },
+    ],
+  },
+  {
+    id: "packaging-supplies",
+    title: "Packaging & Supplies",
+    description: "What I use to wrap, store, and present baked goods beautifully.",
+    items: [
+      {
+        name: "Pre-Cut Parchment Paper",
+        description: "Pre-cut sheets save so much time — no more wrestling with a roll mid-bake.",
+        amazonUrl: "https://amzn.to/4sVodbn",
+      },
+      {
+        name: "Thermal Label Printer",
+        description: "Perfect for labeling orders, ingredients, and homemade gift packaging.",
+        amazonUrl: "https://amzn.to/3QyRYRH",
+      },
+      {
+        name: "Food Thermometer",
+        description: "Essential for candy making and bread baking. Takes the guesswork out of done.",
+        amazonUrl: "https://amzn.to/4tE1guo",
+      },
+      {
+        name: "Air-Tight Freezer Containers",
+        description: "Keep baked goods fresh for weeks. I use these to freeze cookie dough and finished loaves.",
+        amazonUrl: "https://amzn.to/3OwAYel",
+      },
+      {
+        name: "Serving Trays",
+        description: "Great for presenting cookies and treats at parties or for gifting. Elegant and sturdy.",
+        amazonUrl: "https://amzn.to/4eiTQIh",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Laura's Favorites"
+  description="Laura's favorite baking tools, ingredients, and supplies — bread pans, silicone mats, vanilla beans, and more. All available on Amazon."
+  image="/images/og-default.jpg"
+>
+
+  <section class="favorites-hero">
+    <div class="container container--narrow">
+      <h1>Laura's Favorites</h1>
+      <p class="lead">
+        Tools, ingredients, and supplies I actually use in my kitchen — 
+        and honestly couldn't bake without.
+      </p>
+      <p class="disclosure">
+        <em>
+          As an Amazon Associate I earn from qualifying purchases. 
+          All recommendations are products I genuinely use and love.
+        </em>
+      </p>
+    </div>
+  </section>
+
+  {categories.map((category) => (
+    <section class="favorites-category" id={category.id}>
+      <div class="container">
+        <h2 class="category-title">{category.title}</h2>
+        <p class="category-description">{category.description}</p>
+
+        <div class="favorites-grid">
+          {category.items.map((item) => (
+            <div class="fav-card">
+              <div class="fav-card__body">
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+              </div>
+              <div class="fav-card__action">
+                <a
+                  href={item.amazonUrl}
+                  target="_blank"
+                  rel="nofollow sponsored noopener"
+                  class="btn btn--amazon"
+                >
+                  View on Amazon →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="favorites-cta">
+    <div class="container container--narrow">
+      <h2>Want More Baking Tips?</h2>
+      <p>Check out the blog for recipes, techniques, and homemade ingredient guides.</p>
+      <a href="/blog" class="btn btn--secondary">Read the Blog</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .favorites-hero {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .favorites-hero h1 {
+    margin-bottom: var(--space-xs);
+  }
+  .favorites-hero .lead {
+    font-size: 1.2rem;
+    color: var(--color-chocolate);
+    margin-bottom: var(--space-sm);
+  }
+  .disclosure {
+    font-size: 0.875rem;
+    color: var(--color-chocolate);
+    opacity: 0.6;
+  }
+
+  .favorites-category {
+    padding-block: var(--space-lg);
+  }
+  .favorites-category:nth-child(odd) {
+    background: var(--color-cream);
+  }
+  .favorites-category:nth-child(even) {
+    background: var(--color-warm-white);
+  }
+
+  .category-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--space-xs);
+  }
+  .category-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--color-caramel);
+    margin: var(--space-sm) auto 0;
+  }
+  .category-description {
+    text-align: center;
+    color: var(--color-chocolate);
+    opacity: 0.7;
+    margin-bottom: var(--space-lg);
+    max-width: none;
+  }
+
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .fav-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--space-md);
+    box-shadow: 0 2px 8px rgba(74, 55, 40, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .fav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 55, 40, 0.12);
+  }
+  .fav-card__body h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xs);
+  }
+  .fav-card__body p {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.8;
+    margin-bottom: var(--space-sm);
+  }
+  .fav-card__action {
+    margin-top: auto;
+  }
+
+  .btn--amazon {
+    display: inline-block;
+    background: #FF9900;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .btn--amazon:hover {
+    background: #e68a00;
+  }
+
+  .favorites-cta {
+    background: var(--color-chocolate-dark);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .favorites-cta h2 {
+    color: var(--color-cream);
+    margin-bottom: var(--space-sm);
+  }
+  .favorites-cta p {
+    color: var(--color-butter);
+    margin-inline: auto;
+    margin-bottom: var(--space-md);
+  }
+  .favorites-cta .btn--secondary {
+    border-color: var(--color-cream);
+    color: var(--color-cream);
+  }
+  .favorites-cta .btn--secondary:hover {
+    background: var(--color-cream);
+    color: var(--color-chocolate-dark);
+  }
+</style>
