@@ -1,324 +1,357 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const products = [
-  {
-    category: "Decorated Sugar Cookies",
-    description: "Custom decorated for any occasion—birthdays, weddings, holidays, and more",
-    basePrice: "Starting at $45/dozen",
-    items: [
-      {
-        name: "Custom Occasion Cookies",
-        description: "Beautifully decorated sugar cookies designed specifically for your event. Tell me your theme and I'll create edible art.",
-        price: "$45/dozen",
-        image: "/images/afton1.jpg"
-      },
-      {
-        name: "Birthday Cookies",
-        description: "Personalized birthday designs—ages, names, themes, and favorite characters.",
-        price: "$45/dozen",
-        image: "/images/chapter30.jpg"
-      },
-      {
-        name: "Wedding & Bridal Cookies",
-        description: "Elegant designs for bridal showers, weddings, and engagement parties.",
-        price: "$50/dozen",
-        image: "/images/wedding.jpg"
-      },
-      {
-        name: "Holiday Cookies",
-        description: "Seasonal shapes with beautiful royal icing designs. Perfect for gifts.",
-        price: "$45/dozen",
-        image: "/images/butterflies.jpg"
-      },
-      {
-        name: "Baby Shower Cookies",
-        description: "Sweet designs to celebrate the new arrival—gender reveals, baby themes, and more.",
-        price: "$45/dozen",
-        image: "/images/20250501_213141.jpg"
-      },
-      {
-        name: "Character & Theme Cookies",
-        description: "From Snoopy to butterflies—I can create cookies to match any theme.",
-        price: "$50/dozen",
-        image: "/images/snoopy.jpg"
-      }
-    ]
-  },
-  {
-    category: "Scrumptious Cookies",
-    description: "Classic favorites—delicious cookies without the fancy decorations",
-    basePrice: "Starting at $25/dozen",
-    items: [
-      {
-        name: "Chocolate Chip Cookies",
-        description: "Crispy edges, chewy centers, loaded with premium chocolate chips.",
-        price: "$25/dozen",
-        image: "/images/20250113_154137-edited.jpg"
-      },
-      {
-        name: "Snickerdoodles",
-        description: "Soft, pillowy cookies rolled in cinnamon sugar. A nostalgic favorite.",
-        price: "$25/dozen",
-        image: "/images/20250507_133837.jpg"
-      },
-      {
-        name: "Peanut Butter Cookies",
-        description: "Rich, crumbly peanut butter goodness with the classic fork pattern.",
-        price: "$25/dozen",
-        image: "/images/20250502_192219.jpg"
-      },
-      {
-        name: "Oatmeal Raisin",
-        description: "Chewy oatmeal cookies with plump raisins and a hint of cinnamon.",
-        price: "$25/dozen",
-        image: "/images/20250506_131859.jpg"
-      }
-    ]
-  },
-  {
-    category: "Candies",
-    description: "Handmade confections made in small batches",
-    basePrice: "Pricing varies",
-    items: [
-      {
-        name: "Chocolate Truffles",
-        description: "Rich, velvety ganache in assorted flavors: dark chocolate, salted caramel, raspberry, and espresso.",
-        price: "Contact for pricing",
-        image: "/images/1000002508.jpg"
-      },
-      {
-        name: "Handmade Caramels",
-        description: "Soft, buttery caramels with a touch of sea salt. Individually wrapped.",
-        price: "Contact for pricing",
-        image: "/images/1000002542.jpg"
-      },
-      {
-        name: "Seasonal Candies",
-        description: "Special confections for holidays and special occasions.",
-        price: "Contact for pricing",
-        image: "/images/1000002610.jpg"
-      }
-    ]
-  }
-];
 ---
 
-<BaseLayout title="Our Treats" description="Handcrafted cookies, candies, and gift boxes">
+<BaseLayout
+  title="Our Treats"
+  description="Browse Sweet Bites by Laura's full selection — decorated sugar cookies, specialty cookies, breads, rolls, and homemade cakes."
+>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════════════════ -->
   <section class="products-hero">
-    <div class="container">
+    <div class="container container--narrow">
       <h1>Our Treats</h1>
-      <p>Handcrafted with love, made fresh to order</p>
+      <p class="lead">
+        Everything is made by hand, baked fresh, and crafted with care. 
+        Custom orders welcome for any occasion.
+      </p>
     </div>
   </section>
 
-  {products.map((category) => (
-    <section class="product-category">
-      <div class="container">
-        <header class="category-header">
-          <h2 class="category-title">{category.category}</h2>
-          <div class="category-divider"></div>
-          <p class="category-description">{category.description}</p>
-          <p class="category-price">{category.basePrice}</p>
-        </header>
-        <div class="products-grid">
-          {category.items.map((item) => (
-            <article class="product-item">
-              <div class="product-item__image">
-                <img src={item.image} alt={item.name} loading="lazy">
-              </div>
-              <div class="product-item__content">
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <span class="product-item__price">{item.price}</span>
-              </div>
-            </article>
-          ))}
+  <!-- ═══ DECORATED SUGAR COOKIES ══════════════════════════════════════════ -->
+  <section class="product-section" id="decorated">
+    <div class="container">
+      <h2 class="product-section__title">Decorated Sugar Cookies</h2>
+      <p class="product-section__desc">
+        Hand-decorated royal icing cookies for every occasion. Each one is a little 
+        work of art — no two are exactly alike.
+      </p>
+
+      <!-- Carousel -->
+      <div class="carousel" id="cookie-carousel">
+        <div class="carousel__track">
+          <div class="carousel__slide">
+            <img src="/images/afton1.jpg" alt="Decorated sugar cookies" loading="lazy" />
+          </div>
+          <div class="carousel__slide">
+            <img src="/images/1000002508.jpg" alt="Specialty decorated cookies" loading="lazy" />
+          </div>
+          <div class="carousel__slide">
+            <img src="/images/20250113_154137-edited.jpg" alt="Holiday cookies" loading="lazy" />
+          </div>
+        </div>
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">&#8249;</button>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next slide">&#8250;</button>
+        <div class="carousel__dots"></div>
+      </div>
+
+      <div class="product-details">
+        <div class="product-card">
+          <h3>Custom Themed Sets</h3>
+          <p>Birthday, baby shower, wedding, holiday — any theme, any color palette.</p>
+          <p class="price">Starting at <strong>$4 per cookie</strong> (minimum 12)</p>
+        </div>
+        <div class="product-card">
+          <h3>Holiday Collections</h3>
+          <p>Seasonal designs for Christmas, Easter, Valentine's Day, Halloween, and more.</p>
+          <p class="price">Starting at <strong>$4 per cookie</strong> (minimum 12)</p>
+        </div>
+        <div class="product-card">
+          <h3>Gift Boxes</h3>
+          <p>Beautifully boxed assortments — perfect as gifts for any occasion.</p>
+          <p class="price">Starting at <strong>$48</strong> per dozen</p>
         </div>
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
 
-  <section class="products-order">
-    <div class="container container--narrow text-center">
+  <!-- ═══ SPECIALTY COOKIES ═════════════════════════════════════════════════ -->
+  <section class="product-section product-section--alt" id="specialty">
+    <div class="container">
+      <h2 class="product-section__title">Specialty Cookies</h2>
+      <p class="product-section__desc">
+        Classic homemade cookies made from scratch with real butter and the best ingredients. 
+        The kind that disappear fast.
+      </p>
+      <div class="product-details">
+        <div class="product-card">
+          <h3>Chocolate Chip</h3>
+          <p>Crispy edges, chewy centers, loaded with chocolate chips. A timeless classic.</p>
+          <p class="price"><strong>$18</strong> per dozen</p>
+        </div>
+        <div class="product-card">
+          <h3>Snickerdoodles</h3>
+          <p>Soft and pillowy with a cinnamon sugar crust. A crowd favorite every time.</p>
+          <p class="price"><strong>$18</strong> per dozen</p>
+        </div>
+        <div class="product-card">
+          <h3>Seasonal Flavors</h3>
+          <p>Rotating flavors based on what's in season — ask what's available now.</p>
+          <p class="price">Prices vary</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BREADS AND ROLLS ══════════════════════════════════════════════════ -->
+  <section class="product-section" id="breads">
+    <div class="container">
+      <h2 class="product-section__title">Breads and Rolls</h2>
+      <p class="product-section__desc">
+        Freshly baked from scratch — soft, golden loaves and rolls that fill the house 
+        with the best smell in the world.
+      </p>
+      <div class="product-details">
+        <div class="product-card">
+          <h3>Homemade White Bread</h3>
+          <p>Soft, fluffy sandwich loaves made the old-fashioned way. Great for everything.</p>
+          <p class="price"><strong>$8</strong> per loaf</p>
+        </div>
+        <div class="product-card">
+          <h3>Dinner Rolls</h3>
+          <p>Pillowy soft rolls, perfect alongside any meal or holiday table.</p>
+          <p class="price"><strong>$10</strong> per dozen</p>
+        </div>
+        <div class="product-card">
+          <h3>Specialty Loaves</h3>
+          <p>Seasonal and specialty breads — ask what's coming out of the oven this week.</p>
+          <p class="price">Prices vary</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOMEMADE CAKES ════════════════════════════════════════════════════ -->
+  <section class="product-section product-section--alt" id="cakes">
+    <div class="container">
+      <h2 class="product-section__title">Homemade Cakes</h2>
+      <p class="product-section__desc">
+        Moist, from-scratch cakes for birthdays, celebrations, or any day 
+        that calls for something truly special.
+      </p>
+      <div class="product-details">
+        <div class="product-card">
+          <h3>Birthday Cakes</h3>
+          <p>Custom flavors and designs — your favorite cake made exactly how you like it.</p>
+          <p class="price">Starting at <strong>$35</strong></p>
+        </div>
+        <div class="product-card">
+          <h3>Celebration Cakes</h3>
+          <p>For graduations, anniversaries, showers, and any milestone worth celebrating.</p>
+          <p class="price">Starting at <strong>$40</strong></p>
+        </div>
+        <div class="product-card">
+          <h3>Bundt & Sheet Cakes</h3>
+          <p>Perfect for feeding a crowd — classic flavors in a beautiful presentation.</p>
+          <p class="price">Starting at <strong>$28</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ORDER CTA ══════════════════════════════════════════════════════════ -->
+  <section class="order-cta">
+    <div class="container container--narrow">
       <h2>Ready to Order?</h2>
       <p>
-        All treats are made fresh to order. For custom orders, special occasions, or 
-        questions about availability, please get in touch. I typically need 3-5 days 
-        notice for most orders, and a bit more for large or highly decorated requests.
+        All items are made to order. Get in touch and let's make something 
+        delicious together.
       </p>
-      <div class="order-contact">
-        <p><strong>Email:</strong> <a href="mailto:sweetbitesbylaura@gmail.com">sweetbitesbylaura@gmail.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:703-585-2834">(703) 585-2834</a></p>
-      </div>
       <a href="/contact" class="btn btn--primary">Place an Order</a>
     </div>
   </section>
+
 </BaseLayout>
 
 <style>
+  /* ── Hero ─────────────────────────────────────────────────────────────── */
   .products-hero {
     background: var(--color-warm-white);
     padding-block: var(--space-xl);
     text-align: center;
   }
-
-  .products-hero h1 {
-    margin-bottom: var(--space-xs);
-  }
-
-  .products-hero > div > p {
-    font-size: 1.25rem;
+  .products-hero h1 { margin-bottom: var(--space-sm); }
+  .products-hero .lead {
+    font-size: 1.15rem;
     color: var(--color-chocolate);
-    opacity: 0.7;
-    max-width: none;
+    opacity: 0.8;
+    max-width: 500px;
+    margin-inline: auto;
   }
 
-  .hero-contact {
-    margin-top: var(--space-md);
-  }
-
-  .hero-contact p {
-    margin: var(--space-xs) 0;
-  }
-
-  .hero-contact a {
-    color: var(--color-caramel);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .hero-contact a:hover {
-    text-decoration: underline;
-  }
-
-  .product-category {
-    padding-block: var(--space-lg);
-  }
-
-  .product-category:nth-child(odd) {
+  /* ── Product Sections ─────────────────────────────────────────────────── */
+  .product-section {
     background: var(--color-cream);
+    padding-block: var(--space-xl);
   }
-
-  .product-category:nth-child(even) {
+  .product-section--alt {
     background: var(--color-warm-white);
   }
-
-  .category-header {
+  .product-section__title {
     text-align: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xs);
   }
-
-  .category-title {
-    font-size: 2rem;
-    margin-bottom: 0;
-    text-align: center;
-  }
-
-  .category-divider {
+  .product-section__title::after {
+    content: '';
+    display: block;
     width: 60px;
     height: 2px;
     background: var(--color-caramel);
-    margin: var(--space-sm) auto;
+    margin: var(--space-sm) auto var(--space-md);
+  }
+  .product-section__desc {
+    text-align: center;
+    color: var(--color-chocolate);
+    opacity: 0.75;
+    max-width: 580px;
+    margin-inline: auto;
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
   }
 
-  .category-description {
+  /* ── Product Cards ────────────────────────────────────────────────────── */
+  .product-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  .product-card {
+    background: white;
+    border-radius: 8px;
+    padding: var(--space-md);
+    box-shadow: 0 2px 8px rgba(74,55,40,0.08);
+  }
+  .product-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xs);
+  }
+  .product-card p {
+    font-size: 0.9375rem;
     color: var(--color-chocolate);
     opacity: 0.8;
     margin-bottom: var(--space-xs);
-    max-width: none;
-    text-align: center;
+    line-height: 1.6;
   }
-
-  .category-price {
-    font-weight: 600;
+  .product-card .price {
     color: var(--color-caramel);
-    font-size: 1.125rem;
-    text-align: center;
-    max-width: none;
+    font-size: 0.9rem;
+    opacity: 1;
   }
 
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-md);
-  }
-
-  .product-item {
-    background: white;
-    border-radius: 8px;
+  /* ── Carousel ─────────────────────────────────────────────────────────── */
+  .carousel {
+    position: relative;
+    max-width: 720px;
+    margin-inline: auto;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(74, 55, 40, 0.08);
-    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    box-shadow: 0 8px 32px rgba(74,55,40,0.12);
   }
-
-  .product-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(74, 55, 40, 0.12);
+  .carousel__track {
+    display: flex;
+    transition: transform 0.4s ease;
   }
-
-  .product-item__image {
+  .carousel__slide {
+    min-width: 100%;
     aspect-ratio: 4/3;
-    overflow: hidden;
   }
-
-  .product-item__image img {
+  .carousel__slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    display: block;
+  }
+  .carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .carousel__btn:hover { background: white; }
+  .carousel__btn--prev { left: var(--space-sm); }
+  .carousel__btn--next { right: var(--space-sm); }
+  .carousel__dots {
+    position: absolute;
+    bottom: var(--space-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+  }
+  .carousel__dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .carousel__dots .dot.active {
+    background: white;
   }
 
-  .product-item:hover .product-item__image img {
-    transform: scale(1.05);
-  }
-
-  .product-item__content {
-    padding: var(--space-md);
-  }
-
-  .product-item__content h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-xs);
-  }
-
-  .product-item__content p {
-    font-size: 0.9375rem;
-    color: var(--color-chocolate);
-    opacity: 0.85;
-    margin-bottom: var(--space-sm);
-  }
-
-  .product-item__price {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-weight: 600;
-    color: var(--color-caramel);
-    font-size: 1.0625rem;
-  }
-
-  .products-order {
+  /* ── Order CTA ────────────────────────────────────────────────────────── */
+  .order-cta {
     background: var(--color-chocolate-dark);
-    color: var(--color-cream);
     padding-block: var(--space-xl);
+    text-align: center;
   }
-
-  .products-order h2 {
-    color: var(--color-cream);
-    margin-bottom: var(--space-sm);
-  }
-
-  .products-order p {
+  .order-cta h2 { color: var(--color-cream); margin-bottom: var(--space-sm); }
+  .order-cta p {
     color: var(--color-butter);
     margin-inline: auto;
-    margin-bottom: var(--space-sm);
-  }
-
-  .order-contact {
     margin-bottom: var(--space-md);
   }
-
-  .order-contact a {
-    color: var(--color-butter);
-  }
 </style>
+
+<script>
+  // Carousel logic
+  const carousel = document.getElementById('cookie-carousel');
+  if (carousel) {
+    const track = carousel.querySelector('.carousel__track') as HTMLElement;
+    const slides = carousel.querySelectorAll('.carousel__slide');
+    const dotsContainer = carousel.querySelector('.carousel__dots') as HTMLElement;
+    const prevBtn = carousel.querySelector('.carousel__btn--prev') as HTMLButtonElement;
+    const nextBtn = carousel.querySelector('.carousel__btn--next') as HTMLButtonElement;
+
+    let current = 0;
+    const total = slides.length;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index: number) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    // Auto-advance every 4 seconds
+    setInterval(() => goTo(current + 1), 4000);
+  }
+</script>

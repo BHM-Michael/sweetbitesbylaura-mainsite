@@ -57,34 +57,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <div class="treat-card">
           <div class="treat-card__image">
-            <img src="/images/afton1.jpg" alt="Decorated Cookies" loading="lazy" />
+            <img src="/images/afton1.jpg" alt="Decorated Sugar Cookies" loading="lazy" />
           </div>
           <div class="treat-card__body">
-            <h3>Decorated Cookies</h3>
+            <h3>Decorated Sugar Cookies</h3>
             <p>Hand-decorated sugar cookies for every occasion — birthdays, holidays, baby showers, and more.</p>
-            <a href="/products#cookies" class="btn btn--outline btn--sm">See Cookies</a>
+            <a href="/products#decorated" class="btn btn--outline btn--sm">See Cookies</a>
           </div>
         </div>
 
         <div class="treat-card">
           <div class="treat-card__image">
-            <img src="/images/20250113_154137-edited.jpg" alt="Homemade Breads" loading="lazy" />
+            <img src="/images/1000002508.jpg" alt="Specialty Cookies" loading="lazy" />
           </div>
           <div class="treat-card__body">
-            <h3>Homemade Breads</h3>
-            <p>Freshly baked loaves made from scratch — soft, golden, and perfect for any table.</p>
+            <h3>Specialty Cookies</h3>
+            <p>From chocolate chip to snickerdoodle — classic homemade cookies baked fresh in small batches.</p>
+            <a href="/products#specialty" class="btn btn--outline btn--sm">See Cookies</a>
+          </div>
+        </div>
+
+        <div class="treat-card">
+          <div class="treat-card__image">
+            <img src="/images/20250113_154137-edited.jpg" alt="Breads and Rolls" loading="lazy" />
+          </div>
+          <div class="treat-card__body">
+            <h3>Breads and Rolls</h3>
+            <p>Freshly baked loaves and rolls made from scratch — soft, golden, and perfect for any table.</p>
             <a href="/products#breads" class="btn btn--outline btn--sm">See Breads</a>
-          </div>
-        </div>
-
-        <div class="treat-card">
-          <div class="treat-card__image">
-            <img src="/images/1000002508.jpg" alt="Gift Boxes" loading="lazy" />
-          </div>
-          <div class="treat-card__body">
-            <h3>Gift Boxes</h3>
-            <p>Beautifully packaged assortments — the perfect gift for anyone who loves homemade baked goods.</p>
-            <a href="/products#gifts" class="btn btn--outline btn--sm">See Gift Boxes</a>
           </div>
         </div>
 
@@ -165,6 +165,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero {
     background: var(--color-cream);
     padding-block: var(--space-xl);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hero__content {
+    max-width: 640px;
+    margin-inline: auto;
     text-align: center;
   }
   .hero__eyebrow {
