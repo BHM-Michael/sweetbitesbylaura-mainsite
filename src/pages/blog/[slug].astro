@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  seoType="article"
+  publishDate={post.data.pubDate.toISOString()}
+  tags={post.data.tags}
+  image={post.data.heroImage}
+>
+
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <div class="container container--narrow">
+        {post.data.tags.length > 0 && (
+          <div class="blog-post__tags">
+            {post.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        <h1>{post.data.title}</h1>
+        <p class="blog-post__meta">
+          By {post.data.author} &middot;
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        </p>
+      </div>
+    </header>
+
+    {post.data.heroImage && (
+      <div class="blog-post__hero">
+        <div class="container container--narrow">
+          <img src={post.data.heroImage} alt={post.data.title} loading="eager" />
+        </div>
+      </div>
+    )}
+
+    <div class="blog-post__body container container--narrow">
+      <Content />
+    </div>
+
+    <footer class="blog-post__footer container container--narrow">
+      <a href="/blog" class="btn btn--outline">&larr; Back to Blog</a>
+    </footer>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .blog-post__header {
+    background: var(--color-warm-white);
+    padding-block: var(--space-xl);
+    text-align: center;
+  }
+  .blog-post__tags {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-sm);
+  }
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-caramel);
+    background: rgba(193, 130, 57, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+  .blog-post__header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: var(--space-sm);
+  }
+  .blog-post__meta {
+    font-size: 0.9375rem;
+    color: var(--color-chocolate);
+    opacity: 0.6;
+  }
+
+  .blog-post__hero {
+    background: var(--color-cream);
+    padding-block: var(--space-md);
+  }
+  .blog-post__hero img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    max-height: 480px;
+    object-fit: cover;
+  }
+
+  .blog-post__body {
+    padding-block: var(--space-xl);
+  }
+  .blog-post__body :global(h2) {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+  .blog-post__body :global(h3) {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+  .blog-post__body :global(p) {
+    margin-bottom: var(--space-sm);
+    line-height: 1.8;
+  }
+  .blog-post__body :global(ul),
+  .blog-post__body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+  .blog-post__body :global(li) {
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+  .blog-post__body :global(strong) {
+    color: var(--color-chocolate-dark);
+  }
+  .blog-post__body :global(a) {
+    color: var(--color-caramel);
+    font-weight: 600;
+  }
+  .blog-post__body :global(a:hover) {
+    text-decoration: underline;
+  }
+  .blog-post__body :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(74, 55, 40, 0.15);
+    margin-block: var(--space-lg);
+  }
+
+  .blog-post__footer {
+    padding-bottom: var(--space-xl);
+  }
+</style>
