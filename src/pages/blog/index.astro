@@ -1,8 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// This will be replaced with getCollection() when you have actual posts
 const posts = [
+  {
+    slug: 'homemade-vanilla-extract',
+    data: {
+      title: 'How to Make Homemade Vanilla Extract (And Why You\'ll Never Go Back)',
+      description: 'Making your own vanilla extract is easier than you think — and the result is richer, deeper, and far better than anything from the grocery store.',
+      date: '2026-02-14',
+      author: 'Laura'
+    }
+  },
   {
     slug: 'perfect-sugar-cookie',
     data: {
@@ -23,7 +31,6 @@ const posts = [
   }
 ];
 ---
-
 <BaseLayout title="Blog" description="Tips, stories, and sweet inspiration from the kitchen">
   <section class="blog-hero">
     <div class="container">
@@ -31,7 +38,6 @@ const posts = [
       <p>Tips, recipes, and sweet inspiration</p>
     </div>
   </section>
-
   <section class="blog-list">
     <div class="container container--narrow">
       {posts.map((post) => (
@@ -53,74 +59,61 @@ const posts = [
     </div>
   </section>
 </BaseLayout>
-
 <style>
   .blog-hero {
     background: var(--color-warm-white);
     padding-block: var(--space-xl);
     text-align: center;
   }
-
   .blog-hero h1 {
     margin-bottom: var(--space-xs);
   }
-
   .blog-hero p {
     font-size: 1.25rem;
     color: var(--color-chocolate);
     opacity: 0.7;
     max-width: none;
   }
-
   .blog-list {
     padding-block: var(--space-lg);
   }
-
   .blog-entry {
     padding-block: var(--space-lg);
     border-bottom: 1px solid var(--color-butter);
   }
-
   .blog-entry:last-child {
     border-bottom: none;
   }
-
   .blog-entry time {
     font-size: 0.875rem;
     color: var(--color-caramel);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-
   .blog-entry h2 {
     margin-top: var(--space-xs);
     margin-bottom: var(--space-sm);
     font-size: 1.75rem;
   }
-
   .blog-entry h2 a {
     color: var(--color-chocolate-dark);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color 0.2s;
   }
-
   .blog-entry h2 a:hover {
     color: var(--color-caramel);
   }
-
   .blog-entry p {
     margin-bottom: var(--space-sm);
     color: var(--color-chocolate);
     opacity: 0.85;
   }
-
   .read-more {
     font-weight: 500;
     color: var(--color-caramel);
     text-decoration: none;
   }
-
   .read-more:hover {
-    color: var(--color-berry);
+    color: var(--color-chocolate-dark);
   }
 </style>
